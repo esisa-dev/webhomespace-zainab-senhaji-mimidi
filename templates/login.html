@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Authentification</title>
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename= 'auth.css')}}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form>
+        <h3>Authentification</h3>
+
+        <label for="username">Identifiant</label>
+        <input id="username" name="identifiant" type="text" placeholder="Identifiant" >
+
+        <label for="password">Mot de passe</label>
+        <input id="password" name="passwd" type="password" placeholder="Password" >
+
+        <button>Valider</button> 
+    </form>
+</body>
+</html>
