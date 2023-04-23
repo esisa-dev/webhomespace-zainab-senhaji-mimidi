@@ -16,7 +16,7 @@ def connexion():
     identifiant = request.form['identifiant']
     password = request.form['passwd']
 
-    #print(cryptocode.encrypt(password, "zainab"))
+    print(cryptocode.encrypt(password, "zainab"))
 
     connected = verifyAccount(identifiant, password)
     if connected == True:
@@ -32,12 +32,12 @@ def verifyAccount(ident, passwd):
     while shadowFile:
         line = shadowFile.readline().strip("\n")
 
-        lineSplit =  line.split(" ")
+        lineSplit =  line.split(":")
         
         if line == "":
             break
         
-        credentialsDecrypted = ident + " " + str(cryptocode.decrypt(lineSplit[1], "zainab"))
+        credentialsDecrypted = lineSplit[0] + " " + str(cryptocode.decrypt(lineSplit[1], "zainab"))
         
         if credentials == credentialsDecrypted :
             shadowFile.close()
