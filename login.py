@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, make_response, render_template, request, url_for
 import cryptocode
 
 app = Flask(__name__)
@@ -20,6 +20,9 @@ def connexion():
 
     connected = verifyAccount(identifiant, password)
     if connected == True:
+        # resp = make_response(render_template('welcome.html'))
+        # resp.set_cookie('identifiant', identifiant)
+        # resp.set_cookie('password', password)
         return render_template("welcome.html")
     else : 
         return render_template("login.html")
@@ -49,5 +52,23 @@ def verifyAccount(ident, passwd):
 @app.route("/logout")
 def logout():
     return render_template("login.html")
+
+@app.route('/setcookie')
+def setcookie(): 
+
+    resp = make_response(render_template('welcome.html'))
+    resp.set_cookie('identifiant', 'identifiant')
+    resp.set_cookie('password', 'password')
+
+    print(request.cookies)
+    print(request.cookies.get('identifiant'))
+
+    return resp
+
+@app.route('/getcookie')
+def getcookie():
+    ident = request.cookies.get('identifiant')
+    pswd = request.cookies.get('password')
+    return '<h1 Welcome>' + str(ident) + " " + str(pswd) + '</h1>'
 
 app.run(debug=True)
