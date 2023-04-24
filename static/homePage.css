@@ -10,4 +10,18 @@ img {
     padding: 5px;
     width: 25px;
     margin-top: -30px;
-  }
+}
+.lesBoutons {
+    font-size: 200px;
+    text-align: center;
+    padding: 50px;
+}
+.rose {
+    background-color: pink;
+}
+.bleu {
+    background-color: rgb(19, 159, 161);
+}
+.vert {
+    background-color: rgb(23, 230, 23);
+}
