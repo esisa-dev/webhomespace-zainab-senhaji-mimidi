@@ -46,4 +46,8 @@ def verifyAccount(ident, passwd):
     shadowFile.close()
     return False
 
+@app.route("/logout")
+def logout():
+    return render_template("login.html")
+
 app.run(debug=True)
